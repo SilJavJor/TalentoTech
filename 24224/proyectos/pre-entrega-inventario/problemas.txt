@@ -1,0 +1,8 @@
+Antes de las 12 tenia problemas con la validación del precio y el menú.
+
+Validar el ingreso del precio.
+El precio fue solucionado.
+
+Menú se solución al error en el que informaba que se iba de rango.
+Fue solucionado.
+

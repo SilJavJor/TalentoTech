@@ -1,0 +1,1 @@
+start cmd /k "python C:\Desa\Desa\24224\menu-consola\main.py"

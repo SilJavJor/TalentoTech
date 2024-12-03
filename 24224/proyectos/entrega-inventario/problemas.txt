@@ -1,0 +1,4 @@
+Agregar ingreso de categorias
+
+Validar el ingreso del precio.
+

@@ -1,0 +1,7 @@
+Agregar ingreso de categorias
+
+Validar el ingreso del precio.
+
+Verificar que el directorio exista
+    Crear directorio
+    Crear base de datos
