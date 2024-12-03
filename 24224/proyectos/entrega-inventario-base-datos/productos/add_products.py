@@ -1,6 +1,8 @@
 # Agregar Productos
 
 # Importaciones
+# Importa desde datos
+from gestor_base_datos import agregar_producto
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 
@@ -54,34 +56,46 @@ def ingresar_descripcion():
 
             else:
                 #
-                #print("La descripcion no puede ser mayor a 50 caracteres...")
                 mostrar_mensaje(f"El descripcion no puede ser mayor a {largo_maximo} caracteres...")
 
         else:
             #
-            #print("La descripcion no puede estar vacia...")
             mostrar_mensaje(f"La descripcion no puede estar vacia...")
 
 
-# Valida el ingreso de la cantidad
+# Valida si es un entero y que no este vacio
+def valida_entero(entero):
+    # Verifica que no este vacio
+    if (not entero):
+        #
+        mostrar_mensaje(f" La cantidad debe ser un número mayor a cero...")
+        
+        return False
+        
+    else:
+        try:
+            # Intenta convertir a entero
+            int(entero)
+
+            return True
+
+        except ValueError:
+            #
+            mostrar_mensaje(f" La cantidad debe ser un número entero...")
+
+            return False
+
+
+# Ingreso la cantidad del producto
 def ingresar_cantidad():
+    #   
     while True:
         # Obtiene la cantidad en entero
         cantidad = input("\n Cantidad : ")
 
-        # Verifica si es un digito
-        if cantidad.isdigit():
-            if (int(cantidad) > 0):
-                # Devuelve  la variable cantidad
-                return int(cantidad)
-
-            else:
-                #
-                print(" La cantidad debe ser un número mayor a cero...")
-
-        else:
-            #
-            print(" La cantidad debe ser un número entero...")
+        if (valida_entero(cantidad)):
+            # Devuelve  la variable cantidad
+            return int(cantidad)
 
 
 # Valida el ingreso de la cantidad
@@ -124,19 +138,25 @@ def ingresar_categoria():
 
             else:
                 #
-                #print("La categoria no puede ser mayor a 30 caracteres....")
                 mostrar_mensaje(f"El categoria no puede ser mayor a {largo_maximo} caracteres...")
         else:
             #
-            #print("La categoria no pude estar vacio...")
             mostrar_mensaje(f"La categoria no puede estar vacia...")
 
+
+# Muestra el producto ingresado
+def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria):
+    # Muestra los datos del producto agregado
+    print(f" \n Producto ingresado : ")
+    print(f" - Nombre : {nombre}")
+    print(f" - Descripcion : {descripcion}")
+    print(f" - Cantidad : {cantidad}")
+    print(f" - Precio : {precio}")
+    print(f" - Categoria : {categoria}")
 
 
 # Agrega productos al Inventario
 def agregar_productos():
-    # Importamos el inventario de productos
-    from inventory import inventario_productos
     # Importa el Titulo 
     from productos import mostrar_titulo_agregacion 
     
@@ -165,25 +185,18 @@ def agregar_productos():
     # Ingreso y validacion de la variable precio
     categoria = ingresar_categoria()
 
-    # 
-    producto = {
-                    'nombre': nombre,
-                    'descripcion': descripcion, 
-                    'cantidad': cantidad, 
-                    'precio': precio, 
-                    'categoria': categoria
-                }
+    # Agrega un producto
+    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion,
+                                                cantidad = cantidad, precio = precio, categoria = categoria )
 
-    # Se agrega al inventario
-    inventario_productos.append(producto)
+    #
+    if (agregado_correctamente):
+        # Muestra el producto ingresado
+        mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria)
+        
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("Producto agregado exitosamente...")        
 
-    # Se informa el producto ingresado
-    print(f" \n Producto ingresado : ")
-    print(f" - Nombre : {nombre}")
-    print(f" - Descripcion : {descripcion}")
-    print(f" - Cantidad : {cantidad}")
-    print(f" - Precio : {precio}")
-    print(f" - Categoria : {categoria}")
-
-    # Muestra un mensaje en pantalla
-    mostrar_mensaje("Producto agregado exitosamente.")
+    else:
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("Hubo un error al agregar el producto...")        

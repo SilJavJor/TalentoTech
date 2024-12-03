@@ -8,8 +8,8 @@ from pantalla import limpiar_pantalla, mostrar_mensaje
 
 # Imprime los productos en pantalla
 def imprime_productos(productos):
-    # 
-    total_productos = " Total de Productos : "
+    # Titulo de total
+    total_productos = " Total de Productos :"
 
     # Detalle del listado de productos
     for producto in productos:
@@ -47,4 +47,4 @@ def mostrar_productos():
 
     else:
         # Muestra un mensaje en pantalla
-        mostrar_mensaje("No hay productos para mostrar.")
+        mostrar_mensaje("No hay productos para mostrar...")

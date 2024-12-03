@@ -9,8 +9,12 @@ from .data_base_manager import ( verifica_directorio_base_datos, conectar, desco
 #
 from .create_tables import crear_tabla_productos
 # Importa desde Operaciones de Productos
-from .operations_products import ( leer_producto, insertar_producto, actualizar_producto, eliminar_producto, 
+from .operations_products import ( leer_producto, agregar_producto, actualizar_producto, eliminar_producto, 
                                     listar_productos )
+from .queries import ( consulta_creacion_tabla_productos, consulta_agregar_producto, 
+                        consulta_actualizar_producto, consulta_eliminar_producto,
+                        consulta_listar_todos_productos )
+
 
 #
 print("Inicializando el paquete de Base de Datos")

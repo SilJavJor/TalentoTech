@@ -20,22 +20,24 @@ from gestor_base_datos import DATA_BASE, DIRECTORIO_BASE_DATOS
 
 
 
-def verifica_directorio_base_datos(conn):
+def verifica_directorio_base_datos(cnn):
     #
-    if (conn):
+    if (cnn):
         #
         return True
 
+    #
     return False
 
 def conectar():
+    #
     try:
         # Conectar a la base de datos SQLite
         #conn = sqlite3.connect(DATA_BASE)
-        conn = sqlite3.connect(DATA_BASE)
+        cnn = sqlite3.connect(DATA_BASE)
 
         #
-        return conn
+        return cnn
 
     except sqlite3.Error:
 
@@ -47,16 +49,16 @@ def conectar():
         return None
 
 
-def desconectar(conn):
+def desconectar(cnn):
     #
-    if not (conn):
+    if not (cnn):
         # Desconectar de la base de datos
-        conn.close()
+        cnn.close()
 
 
-def verifica_conexion(conn):
+def verifica_conexion(cnn):
     #
-    if (conn):
+    if (cnn):
         #
         return True
 
@@ -64,19 +66,19 @@ def verifica_conexion(conn):
     return False
 
 
-def guardar_cambios(conn):
+def guardar_cambios(cnn):
     #
     #if (conn):
-    if verifica_conexion(conn):
+    if verifica_conexion(cnn):
         # Hace Commit en la base de datos
-        conn.commit()
+        cnn.commit()
 
 
-def guardar_cambios_desconectar(conn):
+def guardar_cambios_desconectar(cnn):
     #
-    if verifica_conexion(conn):
+    if verifica_conexion(cnn):
         # 
-        guardar_cambios(conn)
+        guardar_cambios(cnn)
 
         # 
-        desconectar(conn)
+        desconectar(cnn)
