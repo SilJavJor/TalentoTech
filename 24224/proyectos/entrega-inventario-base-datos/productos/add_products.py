@@ -7,42 +7,60 @@ from pantalla import limpiar_pantalla, mostrar_mensaje
 
 # Valida el ingreso de nombre
 def ingresar_nombre():
+    #
+    largo_minimo = 1
+    #
+    largo_maximo = 30
+
+    # Valida el ingreso de nombre   
     while True:
         # Obtiene el nombre, eliminando los espacios a derecha es izquierda alltim()
         nombre = input("\n Nombre : ").strip().upper()
 
-        if len(nombre) >= 1:
-            if len(nombre) <= 30:
+        #
+        if (len(nombre) >= int(largo_minimo)):
+            #
+            if (len(nombre) <= int(largo_maximo)):
                 # Devuelve  la variable nombre
                 return nombre
 
             else:
                 #
-                print("El nombre no puede ser mayor a 30 caracteres....")
+                mostrar_mensaje(f"El nombre no puede ser mayor a {largo_maximo} caracteres...")
 
         else:
             #
-            print("El nombre no pude estar vacio...")
+            mostrar_mensaje(f"El nombre no pude estar vacio...")
 
 
 # Valida el ingreso de nombre
 def ingresar_descripcion():
+    #
+    largo_minimo = 1
+    #
+    largo_maximo = 50
+
+    # Valida el ingreso de descripcion   
     while True:
         # Obtiene la descripcion, eliminando los espacios a derecha es izquierda alltim()
         descripcion = input("\n Descripcion : ").strip().upper()
 
-        if len(descripcion) >= 1:
-            if len(descripcion) <= 50:
+        #
+        if (len(descripcion) >= int(largo_minimo)):
+            #
+            if (len(descripcion) <= int(largo_maximo)):
                 # Devuelve  la variable descripcion
                 return descripcion
 
             else:
                 #
-                print("La descripcion no puede ser mayor a 50 caracteres...")
+                #print("La descripcion no puede ser mayor a 50 caracteres...")
+                mostrar_mensaje(f"El descripcion no puede ser mayor a {largo_maximo} caracteres...")
 
         else:
             #
-            print("La descripcion no puede estar vacia...")
+            #print("La descripcion no puede estar vacia...")
+            mostrar_mensaje(f"La descripcion no puede estar vacia...")
 
 
 # Valida el ingreso de la cantidad
@@ -87,22 +105,32 @@ def ingresar_precio():
 
 # Valida el ingreso de nombre
 def ingresar_categoria():
+    #
+    largo_minimo = 1
+    #
+    largo_maximo = 30
+
+    # Valida el ingreso de descripcion
     while True:
         # Obtiene la categoria, eliminando los espacios a derecha es izquierda alltim()
-        nombre = input("\n Categoria : ").strip().upper()
+        categoria = input("\n Categoria : ").strip().upper()
 
-        if len(nombre) >= 1:
-            if len(nombre) <= 30:
+        #
+        if (len(categoria) >= int(largo_minimo)):
+            #
+            if (len(categoria) <= int(largo_maximo)):
                 # Devuelve  la variable nombre
-                return nombre
+                return categoria
 
             else:
                 #
-                print("La categoria no puede ser mayor a 30 caracteres....")
-
+                #print("La categoria no puede ser mayor a 30 caracteres....")
+                mostrar_mensaje(f"El categoria no puede ser mayor a {largo_maximo} caracteres...")
         else:
             #
-            print("La categoria no pude estar vacio...")
+            #print("La categoria no pude estar vacio...")
+            mostrar_mensaje(f"La categoria no puede estar vacia...")
+
 
 
 # Agrega productos al Inventario

@@ -14,10 +14,9 @@ def imprime_productos(productos):
     # Detalle del listado de productos
     for producto in productos:
         # 0 = id, 1 = nombre, 2 = descripcion, 3 = cantidad, 4 = precio, 5 = categoria
-        print(f"{producto[1]:<30} {producto[2]:<30} {producto[3]:>10} {producto[4]:>15f} {producto[5]:<30}")
+        print(f"{producto[1]:<30} {producto[2]:<30} {producto[3]:>12} {producto[4]:>15f} {producto[5]:<25}")
 
     # Imprime el total de productos
-    # print(f"\n\n Total de Productos : {(len(productos))}")
     print(f"\n\n {total_productos} {(len(productos))}")
 
 

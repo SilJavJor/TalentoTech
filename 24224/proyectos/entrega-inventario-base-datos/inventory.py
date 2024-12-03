@@ -46,7 +46,7 @@ def inventario():
     while True:
         # Limpia la pantalla
         limpiar_pantalla()
-        
+
         # Muestra el titulo de la aplicación
         mostrar_titulo_aplicacion()
 

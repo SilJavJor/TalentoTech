@@ -13,12 +13,13 @@ from inventory import inventario
 init(autoreset=True)
 
 
+#
 print("Iniciando el programa...")
 
 #verifica_directorio_base_datos()
 # Verificar si existe la base de datos o crearla
 #verifica_base_datos(BASE_DATOS)
-    
+
 
 """
 Punto de entrada principal del programa.
