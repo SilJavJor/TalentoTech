@@ -8,13 +8,16 @@ from pantalla import limpiar_pantalla, mostrar_mensaje
 
 # Imprime los productos en pantalla
 def imprime_productos(productos):
+    # Importa desde Productos 
+    from productos import imprime_un_producto_forma_horizontal 
+    
     # Titulo de total
     total_productos = " Total de Productos :"
 
     # Detalle del listado de productos
     for producto in productos:
-        # 0 = id, 1 = nombre, 2 = descripcion, 3 = cantidad, 4 = precio, 5 = categoria
-        print(f"{producto[1]:<30} {producto[2]:<30} {producto[3]:>12} {producto[4]:>15f} {producto[5]:<25}")
+        # Imprime un producto de forma horizontal (en linea)
+        imprime_un_producto_forma_horizontal(producto)
 
     # Imprime el total de productos
     print(f"\n\n {total_productos} {(len(productos))}")

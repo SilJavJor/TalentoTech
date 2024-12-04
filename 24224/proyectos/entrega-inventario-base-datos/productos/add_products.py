@@ -7,10 +7,46 @@ from gestor_base_datos import agregar_producto
 from pantalla import limpiar_pantalla, mostrar_mensaje
 
 
-# Valida el ingreso de nombre
-def ingresar_nombre():
+# Valida si el texto esta vacio 
+def valida_texto_vacio( texto = ""):
     #
-    largo_minimo = 1
+    if (not texto):
+        #
+        return False
+
+    else:
+        #
+        return True
+
+
+# Valida el largo minimo 
+def valida_largo_minimo(texto = "", largo_minimo = 1):
+    #
+    if (len(texto) >= int(largo_minimo)):
+        #
+        return True
+
+    else:
+        #
+        return False
+
+
+# Valida si el texto esta vacio 
+def valida_largo_maximo(texto = "", largo_maximo = 1):
+    #
+    if (len(texto) <= int(largo_maximo)):
+        #
+        return True
+
+    else:
+        #
+        return False
+
+
+# Ingreso de la cantidad del producto
+def ingresa_nombre():
+    #
+    #largo_minimo = 1
     #
     largo_maximo = 30
 
@@ -19,6 +55,21 @@ def ingresar_nombre():
         # Obtiene el nombre, eliminando los espacios a derecha es izquierda alltim()
         nombre = input("\n Nombre : ").strip().upper()
 
+        #
+        if (valida_texto_vacio(nombre)):
+            #
+            if (valida_largo_maximo(nombre, largo_maximo)):
+                # Devuelve  la variable nombre
+                return nombre
+
+            else:
+                #
+                mostrar_mensaje(f"El nombre no puede ser mayor a {largo_maximo} caracteres...")
+        else:
+            #
+            mostrar_mensaje(f"El nombre no pude estar vacio...")
+
+"""
         #
         if (len(nombre) >= int(largo_minimo)):
             #
@@ -33,12 +84,12 @@ def ingresar_nombre():
         else:
             #
             mostrar_mensaje(f"El nombre no pude estar vacio...")
+"""
 
-
-# Valida el ingreso de nombre
+# Ingreso el nombre del producto
 def ingresar_descripcion():
     #
-    largo_minimo = 1
+    #largo_minimo = 1
     #
     largo_maximo = 50
 
@@ -47,6 +98,22 @@ def ingresar_descripcion():
         # Obtiene la descripcion, eliminando los espacios a derecha es izquierda alltim()
         descripcion = input("\n Descripcion : ").strip().upper()
 
+        #
+        if (valida_texto_vacio(descripcion)):
+            #
+            if (valida_largo_maximo(descripcion, largo_maximo)):
+                # Devuelve  la variable descripcion
+                return descripcion
+
+            else:
+                #
+                mostrar_mensaje(f"El descripcion no puede ser mayor a {largo_maximo} caracteres...")
+
+        else:
+            #
+            mostrar_mensaje(f"La descripcion no puede estar vacia...")
+
+"""
         #
         if (len(descripcion) >= int(largo_minimo)):
             #
@@ -61,7 +128,7 @@ def ingresar_descripcion():
         else:
             #
             mostrar_mensaje(f"La descripcion no puede estar vacia...")
-
+"""
 
 # Valida si es un entero y que no este vacio
 def valida_entero(entero):
@@ -93,16 +160,23 @@ def ingresar_cantidad():
         # Obtiene la cantidad en entero
         cantidad = input("\n Cantidad : ")
 
+        # Valida la cantidad
         if (valida_entero(cantidad)):
             # Devuelve  la variable cantidad
             return int(cantidad)
 
 
-# Valida el ingreso de la cantidad
+# Ingreso el precio del producto
 def ingresar_precio():
     while True:
         precio = input("\n Precio : ")
 
+        # Valida la cantidad
+        if (valida_entero(precio)):
+            # Devuelve  la variable cantidad
+            return int(precio)
+
+        """
         if (precio.isdecimal()):
             if (float(precio) > 0.0000):
                 # Devuelve  la variable cantidad
@@ -115,12 +189,14 @@ def ingresar_precio():
         else:
             #
             print(" El precio debe ser un número con decimales...")
+"""
 
 
+# Ingreso de la cantidad del producto
 # Valida el ingreso de nombre
 def ingresar_categoria():
     #
-    largo_minimo = 1
+    #largo_minimo = 1
     #
     largo_maximo = 30
 
@@ -129,6 +205,23 @@ def ingresar_categoria():
         # Obtiene la categoria, eliminando los espacios a derecha es izquierda alltim()
         categoria = input("\n Categoria : ").strip().upper()
 
+
+        #
+        if (valida_texto_vacio(descripcion)):
+            #
+            if (valida_largo_maximo(descripcion, largo_maximo)):
+                # Devuelve  la variable nombre
+                return categoria
+
+            else:
+                #
+                mostrar_mensaje(f"El categoria no puede ser mayor a {largo_maximo} caracteres...")
+
+        else:
+            #
+            mostrar_mensaje(f"La categoria no puede estar vacia...")
+
+"""
         #
         if (len(categoria) >= int(largo_minimo)):
             #
@@ -142,6 +235,7 @@ def ingresar_categoria():
         else:
             #
             mostrar_mensaje(f"La categoria no puede estar vacia...")
+"""
 
 
 # Muestra el producto ingresado
@@ -186,13 +280,16 @@ def agregar_productos():
     categoria = ingresar_categoria()
 
     # Agrega un producto
-    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion,
-                                                cantidad = cantidad, precio = precio, categoria = categoria )
+    agregado_correctamente = agregar_producto( 
+                                                nombre = nombre, descripcion = descripcion,
+                                                cantidad = cantidad, precio = precio,
+                                                categoria = categoria
+                                            )
 
     #
     if (agregado_correctamente):
         # Muestra el producto ingresado
-        mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria)
+        mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria )
         
         # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto agregado exitosamente...")        
