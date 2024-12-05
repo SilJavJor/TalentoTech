@@ -4,49 +4,14 @@
 # Importa desde datos
 from gestor_base_datos import agregar_producto
 # Importa desde el paquete de pantalla
-from pantalla import limpiar_pantalla, mostrar_mensaje
-
-
-# Valida si el texto esta vacio 
-def valida_texto_vacio( texto = ""):
-    #
-    if (not texto):
-        #
-        return False
-
-    else:
-        #
-        return True
-
-
-# Valida el largo minimo 
-def valida_largo_minimo(texto = "", largo_minimo = 1):
-    #
-    if (len(texto) >= int(largo_minimo)):
-        #
-        return True
-
-    else:
-        #
-        return False
-
-
-# Valida si el texto esta vacio 
-def valida_largo_maximo(texto = "", largo_maximo = 1):
-    #
-    if (len(texto) <= int(largo_maximo)):
-        #
-        return True
-
-    else:
-        #
-        return False
+from pantalla import limpiar_pantalla, mostrar_mensaje, lineas_regresar
 
 
 # Ingreso de la cantidad del producto
 def ingresa_nombre():
-    #
-    #largo_minimo = 1
+    # Importa el Validaciones 
+    from productos import valida_texto_vacio, valida_largo_maximo
+
     #
     largo_maximo = 30
 
@@ -69,27 +34,14 @@ def ingresa_nombre():
             #
             mostrar_mensaje(f"El nombre no pude estar vacio...")
 
-"""
-        #
-        if (len(nombre) >= int(largo_minimo)):
-            #
-            if (len(nombre) <= int(largo_maximo)):
-                # Devuelve  la variable nombre
-                return nombre
+        lineas_regresar(8)
 
-            else:
-                #
-                mostrar_mensaje(f"El nombre no puede ser mayor a {largo_maximo} caracteres...")
-
-        else:
-            #
-            mostrar_mensaje(f"El nombre no pude estar vacio...")
-"""
 
 # Ingreso el nombre del producto
-def ingresar_descripcion():
-    #
-    #largo_minimo = 1
+def ingresa_descripcion():
+        # Importa el Validaciones 
+    from productos import valida_texto_vacio, valida_largo_maximo
+
     #
     largo_maximo = 50
 
@@ -113,90 +65,65 @@ def ingresar_descripcion():
             #
             mostrar_mensaje(f"La descripcion no puede estar vacia...")
 
-"""
-        #
-        if (len(descripcion) >= int(largo_minimo)):
-            #
-            if (len(descripcion) <= int(largo_maximo)):
-                # Devuelve  la variable descripcion
-                return descripcion
-
-            else:
-                #
-                mostrar_mensaje(f"El descripcion no puede ser mayor a {largo_maximo} caracteres...")
-
-        else:
-            #
-            mostrar_mensaje(f"La descripcion no puede estar vacia...")
-"""
-
-# Valida si es un entero y que no este vacio
-def valida_entero(entero):
-    # Verifica que no este vacio
-    if (not entero):
-        #
-        mostrar_mensaje(f" La cantidad debe ser un número mayor a cero...")
-        
-        return False
-        
-    else:
-        try:
-            # Intenta convertir a entero
-            int(entero)
-
-            return True
-
-        except ValueError:
-            #
-            mostrar_mensaje(f" La cantidad debe ser un número entero...")
-
-            return False
+        lineas_regresar(8)
 
 
 # Ingreso la cantidad del producto
-def ingresar_cantidad():
+def ingresa_cantidad():
+    # Importa el Validaciones
+    from productos import valida_numero_vacio, valida_entero
+
     #   
     while True:
         # Obtiene la cantidad en entero
         cantidad = input("\n Cantidad : ")
 
         # Valida la cantidad
-        if (valida_entero(cantidad)):
-            # Devuelve  la variable cantidad
-            return int(cantidad)
+        if (valida_numero_vacio(cantidad)):
+            #
+            if (valida_entero(cantidad)):
+                # Devuelve  la variable cantidad
+                return int(cantidad)
+
+            else:
+                #
+                mostrar_mensaje(f" La cantidad debe ser un número entero...")
+
+        else:
+            #
+            mostrar_mensaje(f" La cantidad debe ser un número mayor a cero...")
 
 
 # Ingreso el precio del producto
-def ingresar_precio():
+def ingresa_precio():
+    # Importa el Validaciones
+    from productos import valida_numero_vacio, valida_flotante
+
+    #
     while True:
         precio = input("\n Precio : ")
 
-        # Valida la cantidad
-        if (valida_entero(precio)):
-            # Devuelve  la variable cantidad
-            return int(precio)
-
-        """
-        if (precio.isdecimal()):
-            if (float(precio) > 0.0000):
-                # Devuelve  la variable cantidad
+        # Valida el precio
+        if (valida_numero_vacio(precio)):
+            #
+            if (valida_flotante(precio)):
+                # Devuelve  la variable precio
                 return float(precio)
 
             else:
                 #
-                print(" El precio debe ser un número mayor a cero...")
+                mostrar_mensaje(" El precio debe ser un número con decimales...")
 
         else:
             #
-            print(" El precio debe ser un número con decimales...")
-"""
+            mostrar_mensaje(f" El precio debe ser un número mayor a cero...")
 
 
 # Ingreso de la cantidad del producto
-# Valida el ingreso de nombre
-def ingresar_categoria():
-    #
-    #largo_minimo = 1
+def ingresa_categoria():
+    # Importa el Validaciones 
+    from productos import valida_texto_vacio, valida_largo_maximo    #
+
     #
     largo_maximo = 30
 
@@ -205,11 +132,10 @@ def ingresar_categoria():
         # Obtiene la categoria, eliminando los espacios a derecha es izquierda alltim()
         categoria = input("\n Categoria : ").strip().upper()
 
-
         #
-        if (valida_texto_vacio(descripcion)):
+        if (valida_texto_vacio(categoria)):
             #
-            if (valida_largo_maximo(descripcion, largo_maximo)):
+            if (valida_largo_maximo(categoria, largo_maximo)):
                 # Devuelve  la variable nombre
                 return categoria
 
@@ -221,21 +147,7 @@ def ingresar_categoria():
             #
             mostrar_mensaje(f"La categoria no puede estar vacia...")
 
-"""
-        #
-        if (len(categoria) >= int(largo_minimo)):
-            #
-            if (len(categoria) <= int(largo_maximo)):
-                # Devuelve  la variable nombre
-                return categoria
-
-            else:
-                #
-                mostrar_mensaje(f"El categoria no puede ser mayor a {largo_maximo} caracteres...")
-        else:
-            #
-            mostrar_mensaje(f"La categoria no puede estar vacia...")
-"""
+        lineas_regresar(8)
 
 
 # Muestra el producto ingresado
@@ -265,26 +177,24 @@ def agregar_productos():
 
     # Variables que se utilizan para cargar el producto
     # Ingreso y validacion de la variable nombre
-    nombre = ingresar_nombre()
+    nombre = ingresa_nombre()
 
-    # Ingreso y validacion de la variable precio
-    descripcion = ingresar_descripcion()
+    # Ingreso y validacion de la variable descripcion
+    descripcion = ingresa_descripcion()
 
     # Ingreso y validacion de la variable cantidad
-    cantidad = ingresar_cantidad()
+    cantidad = ingresa_cantidad()
 
     # Ingreso y validacion de la variable precio
-    precio = ingresar_precio()
+    precio = ingresa_precio()
 
-    # Ingreso y validacion de la variable precio
-    categoria = ingresar_categoria()
+    # Ingreso y validacion de la variable categoria
+    categoria = ingresa_categoria()
 
     # Agrega un producto
-    agregado_correctamente = agregar_producto( 
-                                                nombre = nombre, descripcion = descripcion,
+    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion,
                                                 cantidad = cantidad, precio = precio,
-                                                categoria = categoria
-                                            )
+                                                categoria = categoria )
 
     #
     if (agregado_correctamente):

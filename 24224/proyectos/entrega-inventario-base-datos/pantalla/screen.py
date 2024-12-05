@@ -1,10 +1,12 @@
 # Screen
 
 # Importaciones
-# Importa libreria S. O.
+# Importa libreria S.O.
 import os
 # Importa libreria Time
-import time
+#import time
+# Importa libreria Sys
+import sys
 # Importa libreria Colorama
 from colorama import Style, Fore
 
@@ -54,3 +56,11 @@ def mostrar_mensaje(mensaje, parpadea_mensaje = True, muestra_mensaje_presione_c
     #
     if (muestra_mensaje_presione_cualquier_tecla):
         mostrar_mensaje_presione_cualquier_tecla()
+
+
+# Regresa n cantidad de lineas hacia atras en la pantalla
+def lineas_regresar(lineas_regresar = 1):
+# Mueve el cursor hacia arriba
+    for _ in range(lineas_regresar):
+        # Mueve el cursor una línea hacia arriba
+        sys.stdout.write("\033[F")
