@@ -58,9 +58,25 @@ def mostrar_mensaje(mensaje, parpadea_mensaje = True, muestra_mensaje_presione_c
         mostrar_mensaje_presione_cualquier_tecla()
 
 
-# Regresa n cantidad de lineas hacia atras en la pantalla
-def lineas_regresar(lineas_regresar = 1):
-# Mueve el cursor hacia arriba
+# Regresa n cantidad de lineas hacia arriba en la pantalla
+def regresar_lineas(lineas_regresar = 1):
+    # Mueve el cursor hacia arriba
     for _ in range(lineas_regresar):
         # Mueve el cursor una línea hacia arriba
         sys.stdout.write("\033[F")
+
+
+# Regresa n cantidad de lineas hacia arriba en la pantalla
+def limpia_mostrar_mensaje(lineas_mostrar_mensaje = 1):
+    # Mueve el cursor hacia arriba
+    for _ in range(lineas_mostrar_mensaje):
+        print( "                                                                                             " )
+
+# Regresa n cantidad de lineas hacia arriba en la pantalla
+def limpia_error_mostrar_mensaje(lineas_regresar = 1, lineas_mostrar_mensaje = 1):
+    #
+    regresar_lineas(lineas_regresar)
+
+    limpia_mostrar_mensaje(lineas_mostrar_mensaje)
+
+    regresar_lineas(lineas_regresar)

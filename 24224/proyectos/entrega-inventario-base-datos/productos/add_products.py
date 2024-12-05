@@ -4,7 +4,7 @@
 # Importa desde datos
 from gestor_base_datos import agregar_producto
 # Importa desde el paquete de pantalla
-from pantalla import limpiar_pantalla, mostrar_mensaje, lineas_regresar
+from pantalla import limpiar_pantalla, mostrar_mensaje, limpia_error_mostrar_mensaje
 
 
 # Ingreso de la cantidad del producto
@@ -34,7 +34,7 @@ def ingresa_nombre():
             #
             mostrar_mensaje(f"El nombre no pude estar vacio...")
 
-        lineas_regresar(8)
+        limpia_error_mostrar_mensaje(8, 8)
 
 
 # Ingreso el nombre del producto
@@ -65,7 +65,7 @@ def ingresa_descripcion():
             #
             mostrar_mensaje(f"La descripcion no puede estar vacia...")
 
-        lineas_regresar(8)
+        limpia_error_mostrar_mensaje(8, 8)
 
 
 # Ingreso la cantidad del producto
@@ -93,6 +93,8 @@ def ingresa_cantidad():
             #
             mostrar_mensaje(f" La cantidad debe ser un número mayor a cero...")
 
+        limpia_error_mostrar_mensaje(8, 8)
+
 
 # Ingreso el precio del producto
 def ingresa_precio():
@@ -117,6 +119,8 @@ def ingresa_precio():
         else:
             #
             mostrar_mensaje(f" El precio debe ser un número mayor a cero...")
+
+        limpia_error_mostrar_mensaje(8, 8)
 
 
 # Ingreso de la cantidad del producto
@@ -147,7 +151,7 @@ def ingresa_categoria():
             #
             mostrar_mensaje(f"La categoria no puede estar vacia...")
 
-        lineas_regresar(8)
+        limpia_error_mostrar_mensaje(8, 8)
 
 
 # Muestra el producto ingresado
