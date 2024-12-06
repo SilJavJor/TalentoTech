@@ -71,7 +71,7 @@ def ingresa_descripcion():
 # Ingreso la cantidad del producto
 def ingresa_cantidad():
     # Importa el Validaciones
-    from productos import valida_numero_vacio, valida_entero
+    from productos import valida_numero_vacio, valida_entero, valida_entero_mayor_cero
 
     #   
     while True:
@@ -82,16 +82,18 @@ def ingresa_cantidad():
         if (valida_numero_vacio(cantidad)):
             #
             if (valida_entero(cantidad)):
-                # Devuelve  la variable cantidad
-                return int(cantidad)
+                #
+                if (valida_entero_mayor_cero(cantidad)):
+                    # Devuelve  la variable cantidad
+                    return int(cantidad)
 
             else:
                 #
-                mostrar_mensaje(f" La cantidad debe ser un número entero...")
+                mostrar_mensaje(f"La cantidad debe ser un número entero...")
 
         else:
             #
-            mostrar_mensaje(f" La cantidad debe ser un número mayor a cero...")
+            mostrar_mensaje(f"La cantidad debe ser un número mayor a cero...")
 
         limpia_error_mostrar_mensaje(8, 8)
 
@@ -99,7 +101,7 @@ def ingresa_cantidad():
 # Ingreso el precio del producto
 def ingresa_precio():
     # Importa el Validaciones
-    from productos import valida_numero_vacio, valida_flotante
+    from productos import valida_numero_vacio, valida_flotante, valida_flotante_mayor_cero
 
     #
     while True:
@@ -109,16 +111,18 @@ def ingresa_precio():
         if (valida_numero_vacio(precio)):
             #
             if (valida_flotante(precio)):
-                # Devuelve  la variable precio
-                return float(precio)
+                #
+                if (valida_flotante_mayor_cero(precio)):
+                    # Devuelve  la variable precio
+                    return float(precio)
 
             else:
                 #
-                mostrar_mensaje(" El precio debe ser un número con decimales...")
+                mostrar_mensaje("El precio debe ser un número con decimales...")
 
         else:
             #
-            mostrar_mensaje(f" El precio debe ser un número mayor a cero...")
+            mostrar_mensaje(f"El precio debe ser un número mayor a cero...")
 
         limpia_error_mostrar_mensaje(8, 8)
 
@@ -145,7 +149,7 @@ def ingresa_categoria():
 
             else:
                 #
-                mostrar_mensaje(f"El categoria no puede ser mayor a {largo_maximo} caracteres...")
+                mostrar_mensaje(f"La categoria no puede ser mayor a {largo_maximo} caracteres...")
 
         else:
             #
@@ -176,7 +180,8 @@ def agregar_productos():
     # Muestra el titulo para la ventana de Agregacion
     mostrar_titulo_agregacion()
 
-    # Muestra el encabezado de los datos a ingresar 
+    # Muestra el encabezado de los datos a ingresar
+    #print(f"{Style.BRIGHT} {Fore.GREEN} {'ID':<5} {'Nombre':<30} {'Descripción':<30} {'Cantidad':>10} {'Precio':>15} {'Categoría':<30}")
     print("\n Datos del Producto a ingresar : ")#
 
     # Variables que se utilizan para cargar el producto

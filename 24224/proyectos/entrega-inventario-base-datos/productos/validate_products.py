@@ -34,10 +34,8 @@ def valida_largo_maximo(texto = "", largo_maximo = 1):
 def valida_numero_vacio(numero):
     # Verifica que no este vacio
     if (numero):
-        # Verifica que sea mayor a cero
-        if (float(numero) > float(0)):
-            #
-            return True
+        #
+        return True
 
     return False
 
@@ -57,6 +55,18 @@ def valida_entero(entero):
         return False
 
 
+# Valida si el numero entero mayor a cero
+def valida_entero_mayor_cero(numero):
+    # Verifica que no este vacio
+    if (numero):
+        # Verifica que sea mayor a cero
+        if (int(numero) > int(0)):
+            #
+            return True
+
+    return False
+
+
 # Intenta convertir a entero 
 # Valida si es un entero
 def valida_flotante(flotante):
@@ -70,3 +80,15 @@ def valida_flotante(flotante):
     except ValueError:
         #
         return False
+
+
+# Valida si el numero flotante mayor a cero
+def valida_flotante_mayor_cero(flotante):
+    # Verifica que no este vacio
+    if (flotante):
+        # Verifica que sea mayor a cero
+        if (float(flotante) > float(0)):
+            #
+            return True
+
+    return False

@@ -23,7 +23,7 @@ from .search_products import buscar_productos
 from .under_stock_report import reporte_bajo_stock
 # Importa desde Validaciones de Productos
 from .validate_products import( valida_texto_vacio, valida_largo_minimo, valida_largo_maximo, valida_numero_vacio,
-                                valida_entero, valida_flotante )
+                                valida_entero, valida_entero_mayor_cero, valida_flotante, valida_flotante_mayor_cero )
 
 
 #
