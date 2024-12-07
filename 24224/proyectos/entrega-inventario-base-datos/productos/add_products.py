@@ -1,6 +1,8 @@
 # Agregar Productos
 
 # Importaciones
+# Importa Colorama
+from colorama import Style, Fore
 # Importa desde datos
 from gestor_base_datos import agregar_producto
 # Importa desde el paquete de pantalla
@@ -18,7 +20,7 @@ def ingresa_nombre():
     # Valida el ingreso de nombre   
     while True:
         # Obtiene el nombre, eliminando los espacios a derecha es izquierda alltim()
-        nombre = input("\n Nombre : ").strip().upper()
+        nombre = input(f"{Style.BRIGHT} {Fore.LIGHTYELLOW_EX}\n Nombre : {Style.BRIGHT} {Fore.WHITE}").strip().upper()
 
         #
         if (valida_texto_vacio(nombre)):
@@ -48,7 +50,7 @@ def ingresa_descripcion():
     # Valida el ingreso de descripcion   
     while True:
         # Obtiene la descripcion, eliminando los espacios a derecha es izquierda alltim()
-        descripcion = input("\n Descripcion : ").strip().upper()
+        descripcion = input(f"{Style.BRIGHT} {Fore.LIGHTYELLOW_EX}\n Descripcion : {Style.BRIGHT} {Fore.WHITE}").strip().upper()
 
         #
         if (valida_texto_vacio(descripcion)):
@@ -76,7 +78,7 @@ def ingresa_cantidad():
     #   
     while True:
         # Obtiene la cantidad en entero
-        cantidad = input("\n Cantidad : ")
+        cantidad = input(f"{Style.BRIGHT} {Fore.LIGHTYELLOW_EX}\n Cantidad : {Style.BRIGHT} {Fore.WHITE}")
 
         # Valida la cantidad
         if (valida_numero_vacio(cantidad)):
@@ -105,7 +107,7 @@ def ingresa_precio():
 
     #
     while True:
-        precio = input("\n Precio : ")
+        precio = input(f"{Style.BRIGHT} {Fore.LIGHTYELLOW_EX}\n Precio : {Style.BRIGHT} {Fore.WHITE}")
 
         # Valida el precio
         if (valida_numero_vacio(precio)):
@@ -138,7 +140,7 @@ def ingresa_categoria():
     # Valida el ingreso de descripcion
     while True:
         # Obtiene la categoria, eliminando los espacios a derecha es izquierda alltim()
-        categoria = input("\n Categoria : ").strip().upper()
+        categoria = input(f"{Style.BRIGHT} {Fore.LIGHTYELLOW_EX}\n Categoria : {Style.BRIGHT} {Fore.WHITE}").strip().upper()
 
         #
         if (valida_texto_vacio(categoria)):
@@ -161,12 +163,12 @@ def ingresa_categoria():
 # Muestra el producto ingresado
 def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria):
     # Muestra los datos del producto agregado
-    print(f" \n Producto ingresado : ")
-    print(f" - Nombre : {nombre}")
+    print(f"{Style.BRIGHT} {Fore.YELLOW}\n Producto ingresado : ")
+    print(f" - Nombre      : {nombre}")
     print(f" - Descripcion : {descripcion}")
-    print(f" - Cantidad : {cantidad}")
-    print(f" - Precio : {precio}")
-    print(f" - Categoria : {categoria}")
+    print(f" - Cantidad    : {cantidad}")
+    print(f" - Precio      : {precio}")
+    print(f" - Categoria   : {categoria}")
 
 
 # Agrega productos al Inventario
@@ -181,8 +183,7 @@ def agregar_productos():
     mostrar_titulo_agregacion()
 
     # Muestra el encabezado de los datos a ingresar
-    #print(f"{Style.BRIGHT} {Fore.GREEN} {'ID':<5} {'Nombre':<30} {'Descripción':<30} {'Cantidad':>10} {'Precio':>15} {'Categoría':<30}")
-    print("\n Datos del Producto a ingresar : ")#
+    print(f"{Style.BRIGHT} {Fore.YELLOW}\n Datos del Producto a ingresar : ")
 
     # Variables que se utilizan para cargar el producto
     # Ingreso y validacion de la variable nombre
@@ -201,8 +202,7 @@ def agregar_productos():
     categoria = ingresa_categoria()
 
     # Agrega un producto
-    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion,
-                                                cantidad = cantidad, precio = precio,
+    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion, cantidad = cantidad, precio = precio,
                                                 categoria = categoria )
 
     #
