@@ -1,0 +1,9 @@
+CREATE TABLE "productos" (
+	"id"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL,
+	"descripcion"	TEXT,
+	"cantidad"	INTEGER NOT NULL,
+	"precio"	REAL NOT NULL,
+	"categoria"	TEXT,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
