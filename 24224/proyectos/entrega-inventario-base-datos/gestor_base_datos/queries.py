@@ -2,7 +2,8 @@
 # 
 # 
 
-#
+# Querie de generacion de tabla
+# Genera o crea la tabla de productos
 consulta_creacion_tabla_productos = """
         CREATE TABLE IF NOT EXISTS productos (
             "id" INTEGER NOT NULL,
