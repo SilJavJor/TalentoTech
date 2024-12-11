@@ -13,7 +13,7 @@ from .operations_products import ( leer_producto, agregar_producto, actualizar_p
                                     listar_productos )
 from .queries import ( consulta_creacion_tabla_productos, consulta_agregar_producto, 
                         consulta_actualizar_producto, consulta_eliminar_producto,
-                        consulta_listar_todos_productos )
+                        consulta_listar_todos_productos, consulta_listar_producto )
 
 
 #

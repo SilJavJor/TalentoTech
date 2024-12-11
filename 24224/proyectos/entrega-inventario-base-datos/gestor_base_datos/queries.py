@@ -37,3 +37,6 @@ consulta_eliminar_producto = """
 #
 consulta_listar_todos_productos = """SELECT * FROM productos"""
 
+
+#
+consulta_listar_producto = """SELECT * FROM productos WHERE id = ?"""

@@ -171,11 +171,18 @@ def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria)
     print(f" - Categoria   : {categoria}")
 
 
+# Titulo de Agregar Productos
+def mostrar_titulo_agregacion():
+    # Importa desde Pantalla
+    from pantalla import mostrar_linea_separacion
+    
+    mostrar_linea_separacion()
+    print(f"{Style.BRIGHT}{Fore.CYAN}              Agregando Productos               \n")
+    mostrar_linea_separacion()
+
+
 # Agrega productos al Inventario
 def agregar_productos():
-    # Importa el Titulo 
-    from productos import mostrar_titulo_agregacion 
-    
     # Limpiar pantalla
     limpiar_pantalla()
 
@@ -202,13 +209,13 @@ def agregar_productos():
     categoria = ingresa_categoria()
 
     # Agrega un producto
-    agregado_correctamente = agregar_producto( nombre = nombre, descripcion = descripcion, cantidad = cantidad, precio = precio,
-                                                categoria = categoria )
+    agregado_existosamente = agregar_producto(nombre = nombre, descripcion = descripcion, cantidad = cantidad, precio = precio,
+                                                categoria = categoria)
 
     #
-    if (agregado_correctamente):
+    if (agregado_existosamente):
         # Muestra el producto ingresado
-        mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria )
+        mostrar_producto_agregado(nombre, descripcion, cantidad, precio, categoria)
         
         # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto agregado exitosamente...")        

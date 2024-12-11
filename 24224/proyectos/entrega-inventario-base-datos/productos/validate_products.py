@@ -20,7 +20,7 @@ def valida_largo_minimo(texto = "", largo_minimo = 1):
     return False
 
 
-# Valida si el texto esta vacio 
+# Valida el largo maximo
 def valida_largo_maximo(texto = "", largo_maximo = 1):
     #
     if (len(texto) <= int(largo_maximo)):
