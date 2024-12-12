@@ -4,7 +4,7 @@
 # Importa desde Colorama
 from colorama import Style, Fore
 # Importa desde Pantalla
-from pantalla import mostrar_linea_separacion, mostrar_mensaje
+from pantalla import mostrar_mensaje
 
 
 # Titulo de Listados de Productos
@@ -17,7 +17,7 @@ def imprime_titulos_listados_completos():
 # Imprime un producto horizontalmente
 def imprime_un_producto_forma_horizontal(producto):
     # 0 = id, 1 = nombre, 2 = descripcion, 3 = cantidad, 4 = precio, 5 = categoria
-    print(f"{producto[0]:>5} {producto[1]:<20} {producto[2]:<20} {producto[3]:>12} {producto[4]:>15f} {producto[5]:<20}")
+    print(f"{producto[0]:<5} {producto[1]:<20} {producto[2]:<20} {producto[3]:>12} {producto[4]:>15f} {producto[5]:<20}")
 
 
 # Imprime un producto verticalmente
@@ -35,7 +35,7 @@ def imprime_un_producto_forma_vertical(producto):
 # Controla y ejecuta las opciones del menu
 def seleccionar_opciones_menu_productos(opcion_ingresada):
     # Importa desde Productos
-    from productos import ( agregar_productos, mostrar_productos, modificar_productos, eliminar_productos, 
+    from productos import ( agregar_productos, mostrar_productos, modificar_cantidad, eliminar_productos, 
                             mostrar_producto, reporte_bajo_stock )
 
     if opcion_ingresada == '1':
@@ -48,7 +48,7 @@ def seleccionar_opciones_menu_productos(opcion_ingresada):
 
     elif opcion_ingresada == '3':
         # Funcion Modificar Productos
-        modificar_productos()
+        modificar_cantidad()
 
     elif opcion_ingresada == '4':
         # Funcion Eliminaar Productos

@@ -42,7 +42,7 @@ def mostrar_producto():
 
     # Imprime los productos en pantalla
     if (producto):
-        # Imprime un producto del inventario
+        # Muestra los datos del producto
         imprime_producto(producto)
 
         # Muestra un mensaje en pantalla

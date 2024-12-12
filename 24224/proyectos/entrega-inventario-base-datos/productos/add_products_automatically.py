@@ -1,6 +1,6 @@
 # 
 
-    """
+"""
 pip install faker    
     
     
@@ -43,4 +43,4 @@ def cargar_productos(cantidad=10):
         # Carga 20 productos de ejemplo
         cargar_productos(20)
 
-    """
+"""

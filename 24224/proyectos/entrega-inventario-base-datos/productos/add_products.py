@@ -3,11 +3,10 @@
 # Importaciones
 # Importa Colorama
 from colorama import Style, Fore
-# Importa desde datos
-from gestor_base_datos import agregar_producto
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
-
+# Importa desde datos
+from gestor_base_datos import agregar_producto
 
 # Muestra el producto ingresado
 def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria):
@@ -68,7 +67,7 @@ def agregar_productos():
     if (agregado_existosamente):
         # Muestra el producto ingresado
         mostrar_producto_agregado(nombre, descripcion, cantidad, precio, categoria)
-        
+
         # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto agregado exitosamente...")        
 

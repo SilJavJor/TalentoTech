@@ -1,6 +1,5 @@
 # 
-# 
-# 
+
 
 # Querie de generacion de tabla
 # Genera o crea la tabla de productos
@@ -30,13 +29,23 @@ consulta_actualizar_producto = """
 
 
 #
+consulta_actualizar_cantidad_producto = """
+                                            UPDATE productos SET cantidad = ? WHERE id = ?
+                                        """
+
+
+#
 consulta_eliminar_producto = """
                                 """
 
 
 #
-consulta_listar_todos_productos = """SELECT * FROM productos"""
+consulta_listar_todos_productos = """
+                                        SELECT * FROM productos
+                                """
 
 
 #
-consulta_listar_producto = """SELECT * FROM productos WHERE id = ?"""
+consulta_leer_producto = """
+                            SELECT * FROM productos WHERE id = ?
+                        """

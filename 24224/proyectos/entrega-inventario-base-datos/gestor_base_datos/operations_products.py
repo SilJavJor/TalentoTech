@@ -7,7 +7,7 @@ import sqlite3
 # Importa desde el paquete de conexion
 from gestor_base_datos import conectar, desconectar, verifica_conexion,guardar_cambios_desconectar
 
-# Leer un producto
+# Lee un producto
 def leer_producto(id):
     """
     Busca un producto por su ID en la base de datos.
@@ -17,7 +17,7 @@ def leer_producto(id):
         return: Si lo encuantra devuelve el producto, None si no lo encuentra.
     """
     # Importa desde el paquete de base de datos
-    from gestor_base_datos import consulta_listar_producto
+    from gestor_base_datos import consulta_leer_producto
 
     # Obtiene la conexion    
     cnn = conectar()
@@ -31,11 +31,10 @@ def leer_producto(id):
 
     #
     try:
-        # Querie que devuelve el producto
-        cursor.execute(consulta_listar_producto, (str(id)))
+        # Query que devuelve el producto
+        cursor.execute(consulta_leer_producto, (id,))
 
         #
-        #producto = cursor.fetchall()
         producto = cursor.fetchone()
 
         return producto
@@ -76,7 +75,7 @@ def agregar_producto(nombre, descripcion, cantidad, precio, categoria):
 
     #
     try:
-        # Querie de Agregado de productos
+        # Query de Agregado de productos
         cursor.execute( consulta_agregar_producto, (nombre[:30], descripcion[:50], cantidad, round(precio, 4), 
                         categoria[:30]))
 
@@ -93,6 +92,51 @@ def agregar_producto(nombre, descripcion, cantidad, precio, categoria):
     finally:
         desconectar(cnn)
 
+
+# Actualiza la cantidad de un producto
+def actualizar_cantidad_producto(id, cantidad):
+    """
+    Actualiza la cantidad del producto modificado.
+
+    :parametros
+        id : identificador del producto al cual se le desea modificar la cantidad
+        cantidad : Cantidad disponible del producto.
+        return : True si se inserto correctamente, False  si no se pudo insertar.
+    """
+    # Importa desde el paquete de base de datos
+    from gestor_base_datos import consulta_actualizar_cantidad_producto
+
+    # Obtiene la conexion    
+    cnn = conectar()
+
+    #
+    if not verifica_conexion(cnn):
+        #
+        return False
+
+    #
+    cursor = cnn.cursor()
+
+    #
+    try:
+        print(f"{id}")
+        print(f"{cantidad}")
+    
+        # Query de Actualizacion de cantidad del producto
+        cursor.execute(consulta_actualizar_cantidad_producto, (cantidad, id))
+
+        #
+        guardar_cambios_desconectar(cnn)
+
+        return True
+        
+    except sqlite3.Error:
+
+        #
+        return False
+
+    finally:
+        desconectar(cnn)
 
 # Actualizar un producto
 def actualizar_producto():
@@ -157,7 +201,7 @@ def listar_productos():
 
     #
     try:
-        # Querie que devuelve el Listado de productos
+        # Query que devuelve el Listado de productos
         cursor.execute(consulta_listar_todos_productos)
 
         #

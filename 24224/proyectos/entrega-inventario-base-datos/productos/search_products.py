@@ -46,14 +46,14 @@ def buscar_productos(texto_funcion):
     # Variables que se utilizan para cargar el producto
     # Ingreso y validacion de la variable identificador
     identificador = ingresa_identificador(texto_funcion)
-
+    
     # Busca un producto
-    producto_encontrado = leer_producto(identificador)
+    producto = leer_producto(identificador)
 
     #
-    if (producto_encontrado):
+    if (producto):
 
-        return producto_encontrado
+        return producto
 
     else:
 

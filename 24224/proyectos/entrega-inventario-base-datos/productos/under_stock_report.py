@@ -8,7 +8,7 @@ from pantalla import limpiar_pantalla, mostrar_mensaje
 
 # Titulo de Reporte de Bajo Stock
 def mostrar_titulo_reporte_bajo_stock():
-        # Importa desde Pantalla
+    # Importa desde Pantalla
     from pantalla import mostrar_linea_separacion
 
     mostrar_linea_separacion()
@@ -26,7 +26,7 @@ def reporte_bajo_stock():
     mostrar_titulo_reporte_bajo_stock()
 
     # Muestra un mensaje en pantalla
-    mostrar_mensaje("Opción no implementada....")
+    #mostrar_mensaje("Opción no implementada....")
 
 
 
