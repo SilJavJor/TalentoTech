@@ -67,16 +67,18 @@ def regresar_lineas(lineas_regresar = 1):
 
 
 # Regresa n cantidad de lineas hacia arriba en la pantalla
-def limpia_mostrar_mensaje(lineas_mostrar_mensaje = 1):
+def limpia_mensaje(lineas_mostrar_mensaje = 1):
     # Mueve el cursor hacia arriba
     for _ in range(lineas_mostrar_mensaje):
-        print( "                                                                                             " )
+        print( "                                                                                                          " )
 
 # Regresa n cantidad de lineas hacia arriba en la pantalla
-def limpia_error_mostrar_mensaje(lineas_regresar = 1, lineas_mostrar_mensaje = 1):
+def limpia_mostrar_mensaje(lineas_regresar = 1, lineas_mostrar_mensaje = 1):
     #
     regresar_lineas(lineas_regresar)
 
-    limpia_mostrar_mensaje(lineas_mostrar_mensaje)
+    #
+    limpia_mensaje(lineas_mostrar_mensaje)
 
+    #
     regresar_lineas(lineas_regresar)

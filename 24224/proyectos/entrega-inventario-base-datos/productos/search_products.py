@@ -4,7 +4,7 @@
 # Importa desde Colorama
 from colorama import Style, Fore
 # Importa desde el paquete de pantalla
-from pantalla import limpiar_pantalla, mostrar_mensaje, limpia_error_mostrar_mensaje
+from pantalla import limpiar_pantalla, mostrar_mensaje, limpia_mostrar_mensaje
 # Importa desde datos
 from gestor_base_datos import leer_producto
 
@@ -35,13 +35,13 @@ def ingresa_identificador(texto_funcion):
             #
             mostrar_mensaje(f"La identificador debe ser un número mayor a cero...")
 
-        limpia_error_mostrar_mensaje(8, 8)
+        limpia_mostrar_mensaje(8, 8)
 
 
 # Funcion para buscar productos
 def buscar_productos(texto_funcion):
     # Muestra el encabezado de los datos a ingresar
-    print(f"{Style.BRIGHT} {Fore.YELLOW}\n Datos del Producto a Buscar : ")
+    print(f"{Style.BRIGHT} {Fore.YELLOW}\n Datos del Producto : ")
 
     # Variables que se utilizan para cargar el producto
     # Ingreso y validacion de la variable identificador

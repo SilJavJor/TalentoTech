@@ -14,7 +14,7 @@ def imprime_productos(productos):
     from productos import imprime_titulos_listados_completos, imprime_un_producto_forma_horizontal
 
     # Titulo de total
-    total_productos = " Total de Productos :"
+    total_productos = "Total de Productos :"
 
     # Imprime encabezados
     imprime_titulos_listados_completos()
@@ -25,7 +25,7 @@ def imprime_productos(productos):
         imprime_un_producto_forma_horizontal(producto)
 
     # Imprime el total de productos
-    print(f"\n\n {total_productos} {(len(productos))}")
+    print(f"\n\n{Style.BRIGHT}{Fore.YELLOW} {total_productos} {Style.BRIGHT}{Fore.CYAN}{(len(productos))}")
 
 
 # Titulo de Listar Productos

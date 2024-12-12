@@ -73,4 +73,5 @@ def inventario():
 
             # Muestra un mensaje en pantalla
             mostrar_mensaje("Opción inválida...")
+
             opcion_ingresada = 1
