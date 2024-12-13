@@ -7,15 +7,6 @@ from colorama import Style, Fore
 from pantalla import limpiar_pantalla, mostrar_mensaje
 
 
-# Imprime los productos en pantalla
-def imprime_producto(producto):
-    # Importa desde Productos 
-    from productos import imprime_un_producto_forma_vertical 
-
-    # Imprime un producto de forma Vertical
-    imprime_un_producto_forma_vertical(producto)
-
-
 # Titulo de Buscar Productos
 def mostrar_titulo_busquedas():
     # Importa desde Pantalla
@@ -29,7 +20,7 @@ def mostrar_titulo_busquedas():
 # Funcion para Mostrar un Producto
 def mostrar_producto():
     # Importa desde Productos 
-    from productos import buscar_productos
+    from productos import buscar_productos, imprime_producto
 
     # Limpiar pantalla
     limpiar_pantalla()

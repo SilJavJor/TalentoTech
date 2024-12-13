@@ -35,8 +35,15 @@ consulta_actualizar_cantidad_producto = """
 
 
 #
+consulta_lista_bajo_stock = """
+                                SELECT * FROM productos WHERE cantidad < ?
+                            """
+
+
+#
 consulta_eliminar_producto = """
-                                """
+                                DELETE FROM productos WHERE id = ?
+                            """
 
 
 #

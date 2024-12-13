@@ -5,6 +5,22 @@
 from colorama import Style, Fore
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
+# Importa desde datos
+from gestor_base_datos import eliminar_producto
+
+# Actualizacion de la Cantidad
+def elimina_producto(producto):
+    # Actualiza la cantidad del producto
+    eliminado_existosamente = eliminar_producto(producto[0],)
+
+    #
+    if (eliminado_existosamente):
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("Producto eliminado exitosamente...")        
+
+    else:
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("Hubo un error al eliminar el producto...")       
 
 
 # Titulo de Eliminar Productos
@@ -20,7 +36,7 @@ def mostrar_titulo_eliminacion():
 # Funcion de Eliminacion de Productos
 def eliminar_productos():
     # Importa desde Productos 
-    from productos import buscar_productos
+    from productos import buscar_productos, imprime_producto
 
     # Limpiar pantalla
     limpiar_pantalla()
@@ -28,38 +44,23 @@ def eliminar_productos():
     # Muestra el titulo para la ventana de Agregacion
     mostrar_titulo_eliminacion()
 
-    # Muestra un mensaje en pantalla
-    #mostrar_mensaje("Opción no implementada....")
-    # Muestra el titulo para la ventana de Agregacion
-    #mostrar_titulo_busquedas()
-
     # Obtiene el Listado de los Productos
     producto = buscar_productos("Eliminar")    
 
     # Imprime los productos en pantalla
     if (producto):
-        # Imprime un producto del inventario
-        #imprime_producto(producto)
+        # Muestra los datos del producto
+        imprime_producto(producto)
 
-        # Muestra un mensaje en pantalla
-        mostrar_mensaje("")
+        # Elimina el producto seleccionado
+        elimina_producto(producto)
 
     else:
-                # Muestra un mensaje en pantalla
+        # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto no encontrado...")
 
 
 """
-def main():
-
-    cursor.execute("DELETE FROM productos WHERE id = ?", (producto_id,))
-    
-    # Solicitar el ID del producto a eliminar
-    producto_id = int(input("Ingrese el ID del producto que desea eliminar: "))
-
-    # Buscar el producto
-    producto = conexion_db.buscar_producto_por_id(producto_id)
-
     if producto:
         print(f"Producto encontrado: {producto}")
         confirmacion = input("¿Está seguro de que desea eliminar este producto? (s/n): ").strip().lower()

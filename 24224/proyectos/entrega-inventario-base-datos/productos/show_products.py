@@ -1,4 +1,4 @@
-# Mostrar Productos
+# Muestra todos los Productos
 
 # Importaciones
 # Importa Colorama
@@ -7,26 +7,6 @@ from colorama import Style, Fore
 from gestor_base_datos import listar_productos
 # Importa desde Pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
-
-# Imprime los productos en pantalla
-def imprime_productos(productos):
-    # Importa desde Productos 
-    from productos import imprime_titulos_listados_completos, imprime_un_producto_forma_horizontal
-
-    # Titulo de total
-    total_productos = "Total de Productos :"
-
-    # Imprime encabezados
-    imprime_titulos_listados_completos()
-
-    # Detalle del listado de productos
-    for producto in productos:
-        # Imprime un producto de forma horizontal (en linea)
-        imprime_un_producto_forma_horizontal(producto)
-
-    # Imprime el total de productos
-    print(f"\n\n{Style.BRIGHT}{Fore.YELLOW} {total_productos} {Style.BRIGHT}{Fore.CYAN}{(len(productos))}")
-
 
 # Titulo de Listar Productos
 def mostrar_titulo_listados():
@@ -40,6 +20,9 @@ def mostrar_titulo_listados():
 
 # Muestra por pantalla un listado de todos los productos
 def mostrar_productos():
+    # Importa desde Productos 
+    from productos import imprime_productos
+
     # Limpiar pantalla
     limpiar_pantalla()
 

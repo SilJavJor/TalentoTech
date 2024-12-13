@@ -46,7 +46,7 @@ def leer_producto(id):
         desconectar(cnn)
 
 
-# Inserta un producto
+# Agrega un Producto
 def agregar_producto(nombre, descripcion, cantidad, precio, categoria):
     """
     Agrega un nuevo producto en la base de datos.
@@ -119,27 +119,66 @@ def actualizar_cantidad_producto(id, cantidad):
 
     #
     try:
-        print(f"{id}")
-        print(f"{cantidad}")
-    
         # Query de Actualizacion de cantidad del producto
         cursor.execute(consulta_actualizar_cantidad_producto, (cantidad, id))
 
         #
         guardar_cambios_desconectar(cnn)
 
+        #
         return True
-        
-    except sqlite3.Error:
 
+    except sqlite3.Error:
         #
         return False
 
     finally:
         desconectar(cnn)
 
+
+# Actualiza la cantidad de un producto
+def listar_reporte_bajo_stock(limite = 1):
+    """
+    Lista los productos cuya cantidad estan por debajo del límite indicado.
+
+    :parametros
+        limite : Valor límite superior para la cantidad.
+        return : Devuelve una lista con los productos, Una lista vacia si no existen productos debajo del limite
+    """
+    # Importa desde el paquete de base de datos
+    from gestor_base_datos import consulta_lista_bajo_stock
+
+    # Obtiene la conexion    
+    cnn = conectar()
+
+    #
+    if not verifica_conexion(cnn):
+        #
+        return []
+
+    #
+    cursor = cnn.cursor()
+
+    #
+    try:
+        # Query que devuelve el Listado de los Productos con Bajo Stock
+        # Segun el limite ingresado
+        cursor.execute(consulta_lista_bajo_stock, (limite,))
+        
+        #
+        productos = cursor.fetchall()
+
+        return productos
+        
+    except sqlite3.Error:
+        return []
+
+    finally:
+        desconectar(cnn)
+
+
 # Actualizar un producto
-def actualizar_producto():
+def actualizar_productos():
     #
     conn = conectar()
     if conn:
@@ -153,34 +192,48 @@ def actualizar_producto():
 
 
 # Elimina un producto
-def eliminar_producto():
+def eliminar_producto(id):
+    """
+    Busca un producto por su ID en la base de datos.
+
+    :parametros
+        id: Identificador del producto a buscar.
+        return : True si se elimino correctamente, False  si no se pudo eliminar.
+    """
+    # Importa desde el paquete de base de datos
+    from gestor_base_datos import consulta_eliminar_producto
+
+    # Obtiene la conexion    
+    cnn = conectar()
+
     #
-    conn = conectar()
-    if conn:
-        cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO productos (nombre, precio) VALUES (?, ?)
-        ''', (nombre, precio)) # type: ignore
-        conn.commit()
-        conn.close()
-        print(f"Producto '{nombre}' agregado con éxito.") # type: ignore
+    if not verifica_conexion(cnn):
+        #
+        return False
 
-
-# Listar productos
-def listar_producto():
     #
-    conn = conectar()
-    if conn:
-        cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO productos (nombre, precio) VALUES (?, ?)
-        ''', (nombre, precio)) # type: ignore
-        conn.commit()
-        conn.close()
-        print(f"Producto '{nombre}' agregado con éxito.") # type: ignore
+    cursor = cnn.cursor()
+
+    #
+    try:
+        # Query que devuelve el producto
+        cursor.execute(consulta_eliminar_producto, (id,))
+
+        #
+        guardar_cambios_desconectar(cnn)
+
+        #
+        return True
+
+    except sqlite3.Error:
+        #
+        return False
+
+    finally:
+        desconectar(cnn)
 
 
-# Listar productos
+# Lista todos los Productos
 def listar_productos():
     """
     Obtiene todos los productos de la base de datos.

@@ -31,7 +31,7 @@ def mostrar_titulo_agregacion():
 
 # Agrega productos al Inventario
 def agregar_productos():
-    # Importa desde Pantalla
+    # Importa desde Productos
     from productos import ingresa_nombre, ingresa_descripcion, ingresa_cantidad, ingresa_precio, ingresa_categoria
 
     # Limpiar pantalla

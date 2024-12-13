@@ -3,8 +3,17 @@
 # Importaciones
 # Importa desde Colorama
 from colorama import Style, Fore
+# Importa desde datos
+from gestor_base_datos import listar_reporte_bajo_stock
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
+
+
+# Subtitulo de Reporte de Bajo Stock
+def mostrar_subtitulo_reporte_bajo_stock():
+    # 
+    print(f"{Style.BRIGHT}{Fore.YELLOW} Limite maximo para la cantidad de productos a mostrar \n")
+
 
 # Titulo de Reporte de Bajo Stock
 def mostrar_titulo_reporte_bajo_stock():
@@ -15,86 +24,35 @@ def mostrar_titulo_reporte_bajo_stock():
     print(f"{Style.BRIGHT}{Fore.CYAN}          Reporte de Bajo Stock              \n")
     mostrar_linea_separacion()
 
+    # Muestra el subtitulo para el Reporte de Bajo Stock
+    mostrar_subtitulo_reporte_bajo_stock()
+
 
 # Funcion para buscar productos
 def reporte_bajo_stock():
-    
+    # Importa desde Productos 
+    from productos import imprime_productos, ingresa_cantidad
+
     # Limpiar pantalla
     limpiar_pantalla()
 
-    # Muestra el titulo para la ventana de Agregacion
+    # Muestra el titulo para el Reporte de Bajo Stock
     mostrar_titulo_reporte_bajo_stock()
 
-    # Muestra un mensaje en pantalla
-    #mostrar_mensaje("Opción no implementada....")
+    # Ingreso y validacion de la variable cantidad
+    cantidad_limite = ingresa_cantidad()
 
+    # Obtiene el Listado de los Productos
+    productos = listar_reporte_bajo_stock(cantidad_limite)
 
+    # Imprime los productos en pantalla
+    if (productos):
+        # Imprime todos los productos en el inventario
+        imprime_productos(productos)
 
-    """
-        def productos_por_debajo_de_limite(self, limite):
-    
-        Lista los productos cuya cantidad está por debajo del límite especificado.
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("")
 
-        :param limite: Valor límite para la cantidad.
-        :return: Lista de productos que cumplen con la condición.
-        
-        conexion = self.conectar()
-        if not conexion:
-            return []
-
-        cursor = conexion.cursor()
-
-        try:
-            cursor.execute("SELECT * FROM productos WHERE cantidad < ?", (limite,))
-            productos = cursor.fetchall()
-
-            return [
-                {
-                    "id": producto[0],
-                    "nombre": producto[1],
-                    "descripcion": producto[2],
-                    "cantidad": producto[3],
-                    "precio": producto[4],
-                    "categoria": producto[5],
-                }
-                for producto in productos
-            ]
-        except sqlite3.Error as e:
-            print(f"Error al generar el reporte: {e}")
-            return []
-        finally:
-            self.cerrar_conexion(conexion)
-            
-            
-    
-    def generar_reporte():
-    conexion_db = ConexionSQLite()
-
-    # Solicitar el límite al usuario
-    try:
-        limite = int(input("Ingrese el límite para la cantidad de productos: "))
-    except ValueError:
-        print("Por favor, ingrese un número válido.")
-        return
-
-    # Obtener los productos debajo del límite
-    productos = conexion_db.productos_por_debajo_de_limite(limite)
-
-    if productos:
-        # Cabecera del reporte
-        print(f"\nProductos con cantidad menor a {limite}:")
-        print(f"{'ID':<5} {'Nombre':<30} {'Cantidad':>10} {'Precio':>10} {'Categoría':<30}")
-        print("=" * 80)
-
-        # Mostrar los productos
-        for producto in productos:
-            print(
-                f"{producto['id']:<5} "
-                f"{producto['nombre']:<30} "
-                f"{producto['cantidad']:>10} "
-                f"{producto['precio']:>10.4f} "
-                f"{producto['categoria']:<30}"
-            )
     else:
-        print(f"No hay productos con cantidad menor a {limite}.")
-    """
+        # Muestra un mensaje en pantalla
+        mostrar_mensaje("No hay productos para mostrar...")

@@ -5,8 +5,11 @@
 from .menu_products import mostrar_menu_productos, opciones_menu_productos
 
 # Importa desde Productos
-from .products import (seleccionar_opciones_menu_productos, imprime_titulos_listados_completos,
-                        imprime_un_producto_forma_horizontal, imprime_un_producto_forma_vertical)
+from .products import (seleccionar_opciones_menu_productos)
+
+# Importa desde Productos
+from .print_products import (imprime_productos, imprime_producto, imprime_titulos_listados_completos,
+                            imprime_un_producto_forma_horizontal, imprime_un_producto_forma_vertical)
 
 # Importa desde Agregar Productos
 from .add_products import agregar_productos

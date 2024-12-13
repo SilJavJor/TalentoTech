@@ -12,14 +12,14 @@ from .data_base_manager import ( verifica_directorio_base_datos, conectar, desco
 from .create_tables import crear_tabla_productos
 
 # Importa desde Operaciones de Productos
-from .operations_products import (leer_producto, agregar_producto, actualizar_producto, actualizar_cantidad_producto, 
-                                    eliminar_producto, listar_productos)
+from .operations_products import (leer_producto, agregar_producto, actualizar_productos, actualizar_cantidad_producto, 
+                                    eliminar_producto, listar_productos, listar_reporte_bajo_stock)
 
 #
 from .queries import (consulta_creacion_tabla_productos, consulta_agregar_producto, 
                         consulta_actualizar_producto, consulta_actualizar_cantidad_producto, 
-                        consulta_eliminar_producto, consulta_listar_todos_productos, 
-                        consulta_leer_producto)
+                        consulta_eliminar_producto, consulta_lista_bajo_stock, 
+                        consulta_listar_todos_productos, consulta_leer_producto)
 
 
 #
