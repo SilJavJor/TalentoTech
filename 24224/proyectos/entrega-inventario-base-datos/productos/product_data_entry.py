@@ -32,6 +32,7 @@ def ingresa_nombre():
             else:
                 #
                 mostrar_mensaje(f"El nombre no puede ser mayor a {largo_maximo} caracteres...")
+
         else:
             #
             mostrar_mensaje(f"El nombre no pude estar vacio...")
