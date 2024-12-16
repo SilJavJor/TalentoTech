@@ -4,7 +4,7 @@
 # Importa desde Colorama
 from colorama import Style, Fore
 # Importa desde datos
-from gestor_base_datos import listar_reporte_bajo_stock
+from gestor_base_datos import lista_reporte_bajo_stock
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 
@@ -43,7 +43,7 @@ def reporte_bajo_stock():
     cantidad_limite = ingresa_cantidad()
 
     # Obtiene el Listado de los Productos
-    productos = listar_reporte_bajo_stock(cantidad_limite)
+    productos = lista_reporte_bajo_stock(cantidad_limite)
 
     # Imprime los productos en pantalla
     if (productos):

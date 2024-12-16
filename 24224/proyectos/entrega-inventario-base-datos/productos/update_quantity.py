@@ -6,7 +6,7 @@ from colorama import Style, Fore
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 # Importa desde datos
-from gestor_base_datos import actualizar_cantidad_producto
+from gestor_base_datos import actualiza_cantidad_producto
 
 
 # Actualizacion de la Cantidad
@@ -18,7 +18,7 @@ def actualiza_cantidad(producto):
     cantidad = ingresa_cantidad()
 
     # Actualiza la cantidad del producto
-    cantidad_actualizada_existosamente = actualizar_cantidad_producto(producto[0], cantidad = cantidad)
+    cantidad_actualizada_existosamente = actualiza_cantidad_producto(producto[0], cantidad = cantidad)
 
     #
     if (cantidad_actualizada_existosamente):

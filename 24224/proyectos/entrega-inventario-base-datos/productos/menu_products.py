@@ -8,12 +8,14 @@ from colorama import Style, Fore
 # Opciones del menu
 # id_opcion, item mostrado, ayuda
 opciones_menu_productos = [
-    [1, " 1 - Agregar producto                 ", "Agrega un producto"],
+    [1, " 1 - Agrega producto                  ", "Agrega un producto"],
     [2, " 2 - Mostrar productos                ", "Muestra todos los productos"],
     [3, " 3 - Actualizar cantidad de producto  ", "Actualiza / Modifica la cantidad de un producto"],
     [4, " 4 - Eliminar producto                ", "Elimina un producto"],
     [5, " 5 - Buscar producto                  ", "Buscar un producto"],
     [6, " 6 - Reporte de bajo stock            ", "Muestra los productos bajo stock"],
+    [6, " 7 - Actualizacion de productos       ", "Actualiza / Modifica un Productola"],
+    [6, " 8 - Agrega productos por cantidad    ", "Agrega productos por cantidad aleatoriamente"],
     [0, " ------------------------------------ ", ""],
     [8, " 9 - Salir                            ", "Salir de la Aplicación"]
 ]

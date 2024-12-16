@@ -17,19 +17,19 @@ consulta_creacion_tabla_productos = """
 
 
 #
-consulta_agregar_producto = """
+consulta_agrega_producto = """
                                 INSERT INTO productos (nombre, descripcion, cantidad, precio, categoria)
                                 VALUES (?, ?, ?, ?, ?)
                             """
 
 
 #
-consulta_actualizar_producto = """
+consulta_actualiza_producto = """
                                 """
 
 
 #
-consulta_actualizar_cantidad_producto = """
+consulta_actualiza_cantidad_producto = """
                                             UPDATE productos SET cantidad = ? WHERE id = ?
                                         """
 
@@ -41,18 +41,18 @@ consulta_lista_bajo_stock = """
 
 
 #
-consulta_eliminar_producto = """
+consulta_elimina_producto = """
                                 DELETE FROM productos WHERE id = ?
                             """
 
 
 #
-consulta_listar_todos_productos = """
+consulta_lista_todos_productos = """
                                         SELECT * FROM productos
                                 """
 
 
 #
-consulta_leer_producto = """
+consulta_lee_producto = """
                             SELECT * FROM productos WHERE id = ?
                         """

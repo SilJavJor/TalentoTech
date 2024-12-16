@@ -4,9 +4,9 @@
 # Importa Colorama
 from colorama import Style, Fore
 # Importa desde datos
-from gestor_base_datos import agregar_producto
+from gestor_base_datos import agrega_producto
 # Importa desde el paquete de pantalla
-from pantalla import limpiar_pantalla, mostrar_mensaje, limpia_mostrar_mensaje
+from pantalla import mostrar_mensaje, limpia_mostrar_mensaje
 
 
 # Ingresa el nombre

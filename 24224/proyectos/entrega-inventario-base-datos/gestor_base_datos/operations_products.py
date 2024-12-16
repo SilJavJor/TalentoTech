@@ -8,7 +8,7 @@ import sqlite3
 from gestor_base_datos import conectar, desconectar, verifica_conexion,guardar_cambios_desconectar
 
 # Lee un producto
-def leer_producto(id):
+def lee_producto(id):
     """
     Busca un producto por su ID en la base de datos.
 
@@ -47,7 +47,7 @@ def leer_producto(id):
 
 
 # Agrega un Producto
-def agregar_producto(nombre, descripcion, cantidad, precio, categoria):
+def agrega_producto(nombre, descripcion, cantidad, precio, categoria):
     """
     Agrega un nuevo producto en la base de datos.
 
@@ -94,7 +94,7 @@ def agregar_producto(nombre, descripcion, cantidad, precio, categoria):
 
 
 # Actualiza la cantidad de un producto
-def actualizar_cantidad_producto(id, cantidad):
+def actualiza_cantidad_producto(id, cantidad):
     """
     Actualiza la cantidad del producto modificado.
 
@@ -137,7 +137,7 @@ def actualizar_cantidad_producto(id, cantidad):
 
 
 # Actualiza la cantidad de un producto
-def listar_reporte_bajo_stock(limite = 1):
+def lista_reporte_bajo_stock(limite = 1):
     """
     Lista los productos cuya cantidad estan por debajo del límite indicado.
 
@@ -178,7 +178,7 @@ def listar_reporte_bajo_stock(limite = 1):
 
 
 # Actualizar un producto
-def actualizar_productos():
+def actualiza_producto():
     #
     conn = conectar()
     if conn:
@@ -192,7 +192,7 @@ def actualizar_productos():
 
 
 # Elimina un producto
-def eliminar_producto(id):
+def elimina_producto(id):
     """
     Busca un producto por su ID en la base de datos.
 
@@ -234,7 +234,7 @@ def eliminar_producto(id):
 
 
 # Lista todos los Productos
-def listar_productos():
+def lista_productos():
     """
     Obtiene todos los productos de la base de datos.
     Devuelve una lista con los productos y una vacia si no existen productos cargados

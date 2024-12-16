@@ -6,9 +6,9 @@
 1. DESCRIPCIÓN GENERAL
 -----------------------
 La aplicación es una herramienta para la gestión de productos en una base de datos SQLite.
-Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) y generar reportes en pantalla como es al Reporte de Bajo Stock 
-(con el ingrso de la cantidad minima de Stock).
-Reportes en formatos CSV y PDF (si se puede terminar).
+Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) y generar reportes en pantalla, 
+como lo es el Reporte de Bajo Stock (con el ingreso de la cantidad minima de Stock).
+Reportes en formatos CSV y PDF (si es que puedo terminar de implementar estas opciones).
 
 
 2. CARACTERÍSTICAS PRINCIPALES
@@ -54,9 +54,10 @@ Reportes en formatos CSV y PDF (si se puede terminar).
 -------------------------------
 - Ejecucion manual
   - Inatalar Python 3.10 o superior.
-  - Instalación de las bibliotecas:
+  - Instalación de bibliotecas:
     pip install colorama
 
 - Ejecucion automatica
   - Ejecutar el archivo run.bat (se puede ejecutar por linea de comando o PowerShell).
-  - Este archivo instalara las librerias necesarias y ejecutara la aplicación al momento de terminar la instalacion.
+  - Este archivo instalara las librerias necesarias 
+    y ejecutara la aplicación al momento de terminar la instalacion.

@@ -6,7 +6,7 @@ from colorama import Style, Fore
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 # Importa desde datos
-from gestor_base_datos import agregar_producto
+from gestor_base_datos import agrega_producto
 
 # Muestra el producto ingresado
 def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria):
@@ -20,25 +20,26 @@ def mostrar_producto_agregado( nombre, descripcion, cantidad, precio, categoria)
 
 
 # Titulo de Agregar Productos
-def mostrar_titulo_agregacion():
+def mostrar_titulo_creacion():
     # Importa desde Pantalla
     from pantalla import mostrar_linea_separacion
     
     mostrar_linea_separacion()
-    print(f"{Style.BRIGHT}{Fore.CYAN}              Agregando Productos               \n")
+    print(f"{Style.BRIGHT}{Fore.CYAN}          Agregando Productos          \n")
     mostrar_linea_separacion()
 
 
 # Agrega productos al Inventario
 def agregar_productos():
     # Importa desde Productos
-    from productos import ingresa_nombre, ingresa_descripcion, ingresa_cantidad, ingresa_precio, ingresa_categoria
+    from productos import (ingresa_nombre, ingresa_descripcion, ingresa_cantidad, ingresa_precio, 
+                           ingresa_categoria)
 
     # Limpiar pantalla
     limpiar_pantalla()
 
     # Muestra el titulo para la ventana de Agregacion
-    mostrar_titulo_agregacion()
+    mostrar_titulo_creacion()
 
     # Muestra el encabezado de los datos a ingresar
     print(f"{Style.BRIGHT} {Fore.YELLOW}\n Datos del Producto a ingresar : ")
@@ -60,7 +61,7 @@ def agregar_productos():
     categoria = ingresa_categoria()
 
     # Agrega un producto
-    agregado_existosamente = agregar_producto(nombre = nombre, descripcion = descripcion, cantidad = cantidad, precio = precio,
+    agregado_existosamente = agrega_producto(nombre = nombre, descripcion = descripcion, cantidad = cantidad, precio = precio,
                                                 categoria = categoria)
 
     #

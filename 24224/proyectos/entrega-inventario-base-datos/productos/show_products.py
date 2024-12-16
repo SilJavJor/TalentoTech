@@ -4,7 +4,7 @@
 # Importa Colorama
 from colorama import Style, Fore
 # Importa desde datos
-from gestor_base_datos import listar_productos
+from gestor_base_datos import lista_productos
 # Importa desde Pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 
@@ -30,7 +30,7 @@ def mostrar_productos():
     mostrar_titulo_listados()
 
     # Obtiene el Listado de los Productos
-    productos = listar_productos()
+    productos = lista_productos()
 
     # Imprime los productos en pantalla
     if (productos):

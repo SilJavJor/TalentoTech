@@ -40,5 +40,5 @@ def mostrar_producto():
         mostrar_mensaje("")
 
     else:
-                # Muestra un mensaje en pantalla
+        # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto no encontrado...")

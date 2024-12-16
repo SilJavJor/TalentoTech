@@ -6,12 +6,12 @@ from colorama import Style, Fore
 # Importa desde el paquete de pantalla
 from pantalla import limpiar_pantalla, mostrar_mensaje
 # Importa desde datos
-from gestor_base_datos import eliminar_producto
+from gestor_base_datos import elimina_producto
 
 # Actualizacion de la Cantidad
 def elimina_producto(producto):
     # Actualiza la cantidad del producto
-    eliminado_existosamente = eliminar_producto(producto[0],)
+    eliminado_existosamente = elimina_producto(producto[0],)
 
     #
     if (eliminado_existosamente):
@@ -58,20 +58,3 @@ def eliminar_productos():
     else:
         # Muestra un mensaje en pantalla
         mostrar_mensaje("Producto no encontrado...")
-
-
-"""
-    if producto:
-        print(f"Producto encontrado: {producto}")
-        confirmacion = input("¿Está seguro de que desea eliminar este producto? (s/n): ").strip().lower()
-        if confirmacion == 's':
-            eliminado = conexion_db.eliminar_producto(producto_id)
-            if eliminado:
-                print("El producto fue eliminado exitosamente.")
-            else:
-                print("No se pudo eliminar el producto.")
-        else:
-            print("Operación cancelada.")
-    else:
-        print("El producto no existe.")
-"""

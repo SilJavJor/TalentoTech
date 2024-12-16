@@ -4,9 +4,9 @@
 # Importa desde Colorama
 from colorama import Style, Fore
 # Importa desde el paquete de pantalla
-from pantalla import limpiar_pantalla, mostrar_mensaje, limpia_mostrar_mensaje
+from pantalla import mostrar_mensaje, limpia_mostrar_mensaje
 # Importa desde datos
-from gestor_base_datos import leer_producto
+from gestor_base_datos import lee_producto
 
 # Ingreso el identificador del producto
 def ingresa_identificador(texto_funcion):
@@ -48,7 +48,7 @@ def buscar_productos(texto_funcion):
     identificador = ingresa_identificador(texto_funcion)
     
     # Busca un producto
-    producto = leer_producto(identificador)
+    producto = lee_producto(identificador)
 
     #
     if (producto):
